@@ -1,0 +1,32 @@
+CREATE DATABASE `sellingsystem` /*!40100 DEFAULT CHARACTER SET utf8 */ /*!80016 DEFAULT ENCRYPTION='N' */;
+
+CREATE TABLE `coin` (
+  `value` decimal(10,2) NOT NULL,
+  `num` int NOT NULL,
+  PRIMARY KEY (`value`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
+
+CREATE TABLE `goods` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
+
+CREATE TABLE `papermoney` (
+  `value` int NOT NULL,
+  `num` int NOT NULL,
+  PRIMARY KEY (`value`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
+
+CREATE TABLE `psw` (
+  `psw` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
+
+CREATE TABLE `shelves` (
+  `position` int NOT NULL,
+  `goodsid` int DEFAULT NULL,
+  `num` int NOT NULL,
+  PRIMARY KEY (`position`) USING BTREE,
+  KEY `goodsid` (`goodsid`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;

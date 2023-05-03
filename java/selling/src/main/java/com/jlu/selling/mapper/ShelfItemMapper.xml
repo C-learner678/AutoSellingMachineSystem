@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jlu.selling.mapper.ShelfItemMapper">
+    <select id="getAllShelfItem" resultType="com.jlu.selling.domain.ShelfItem">
+        SELECT goodsid, position, name, num, price from shelves left outer join goods on shelves.goodsid = goods.id
+    </select>
+    <select id="checkShelfItem" resultType="Integer">
+        SELECT num FROM shelves WHERE position = #{0}
+    </select>
+    <update id="buyShelfItem">
+        UPDATE shelves SET num = num - 1 WHERE position = #{0}
+    </update>
+    <update id="setShelfItemGoodsId">
+        UPDATE shelves SET goodsid = #{goodsid} WHERE position = #{position}
+    </update>
+    <update id="setShelfItemNum">
+        UPDATE shelves SET num = #{num} WHERE position = #{position}
+    </update>
+</mapper>

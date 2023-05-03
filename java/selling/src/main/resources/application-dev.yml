@@ -1,0 +1,19 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    username: root
+    password: 123abc
+    url: jdbc:mysql://localhost:3306/sellingsystem
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:/com/jlu/selling/mapper/*.xml
+  type-aliases-package: com.jlu.selling.mapper
+
+#showSql
+logging:
+  level:
+    com:
+      example:

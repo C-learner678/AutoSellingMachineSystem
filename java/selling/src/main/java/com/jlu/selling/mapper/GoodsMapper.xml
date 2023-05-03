@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jlu.selling.mapper.GoodsMapper">
+    <select id="getAllGoods" resultType="com.jlu.selling.domain.Goods">
+        SELECT id, name, price FROM goods
+    </select>
+    <insert id="insertGoods">
+        INSERT INTO goods VALUES(NULL,#{name},#{price})
+    </insert>
+    <update id="modifyGoodsName">
+        UPDATE goods SET name = #{name} WHERE id = #{id}
+    </update>
+    <update id="modifyGoodsPrice">
+        UPDATE goods SET price = #{price} WHERE id = #{id}
+    </update>
+    <delete id="deleteGoods">
+        DELETE FROM goods WHERE id = #{id}
+    </delete>
+</mapper>
